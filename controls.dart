@@ -1,4 +1,29 @@
 import 'dart:io';
+void myFunc(){
+  var list1=[2,8,9,10];
+  for (var i in list1) {
+    print("Element $i");
+    
+  }
+}
+
+void myFunc2(){
+  String? username;
+  String? password;
+  while (username == null || password == null) 
+  {
+    stdout.write("Enter your username: ");
+    username = stdin.readLineSync();
+    stdout.write("Enter your password: ");
+    password = stdin.readLineSync();
+    if(username==null&&password==null)
+    {
+      print("Please enter your username and password");
+    }
+   
+  }
+ print("Hello $username you can proceed to login ");
+}
 
 void main() {
   stdout.write("Enter a number: "); 
@@ -18,4 +43,6 @@ void main() {
   } else {
     print("No input received.");
   }
+  myFunc2();
+  myFunc();
 }
