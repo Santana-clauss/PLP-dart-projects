@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_todolist/utils/routes.dart';
 import 'package:flutter_todolist/views/dashboard.dart';
+import 'package:flutter_todolist/views/screens/profile.dart';
 import 'package:get/get.dart';
 
 
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       //initialRoute: ,
       getPages: Routes.routes,
       debugShowCheckedModeBanner: false,
-      home: Dashboard(),
+      home:ProfilePage()
     );
   }
 }

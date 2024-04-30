@@ -103,7 +103,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   Navigator.pushNamed(context, "/updateProfile");
                 },
                 style: ElevatedButton.styleFrom(
-                  primary:orangeColor,
+                  backgroundColor: orangeColor,
                   onPrimary: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
@@ -126,9 +126,9 @@ class _ProfilePageState extends State<ProfilePage> {
               Padding(
                 padding: const EdgeInsets.only(left: 10),
                 child: custumdetails(
-                  imageUrl: "/images/wallet.png",
-                  tileTitle: "My Wallet",
-                  subTileTitle: "Manage your saved wallet",
+                  imageUrl: "/images/to-do-list.png",
+                  tileTitle: "My Tasks",
+                  subTileTitle: "Manage your tasks",
                 ),
               ),
               SizedBox(
@@ -177,7 +177,7 @@ class _ProfilePageState extends State<ProfilePage> {
                         Navigator.pushNamed(context, "/login");
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: orangeColor,
+                        backgroundColor: orangeColor,
                         onPrimary: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20),
