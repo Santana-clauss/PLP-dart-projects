@@ -67,6 +67,10 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        automaticallyImplyLeading: true,
+        backgroundColor: orangeColor,
+      ),
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(25.0),

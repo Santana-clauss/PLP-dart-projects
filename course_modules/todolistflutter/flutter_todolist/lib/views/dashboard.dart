@@ -11,15 +11,25 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  final GlobalKey<ScaffoldState> _scaffoldKey =
+      GlobalKey<ScaffoldState>(); // Add this line
+
   List<Map<String, dynamic>> tasks = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey, // Add this line
       appBar: AppBar(
         title: const Text("TaskTrov"),
         backgroundColor: orangeColor,
         automaticallyImplyLeading: false,
+        leading: IconButton(
+          icon: Icon(Icons.menu),
+          onPressed: () {
+            _scaffoldKey.currentState!.openDrawer(); // Modify this line
+          },
+        ),
       ),
       drawer: Drawer(
         child: ListView(
@@ -36,7 +46,6 @@ class _DashboardState extends State<Dashboard> {
                   fontSize: 24,
                 ),
               ),
-              
             ),
             ListTile(
               leading: Icon(Icons.dashboard),
@@ -47,9 +56,9 @@ class _DashboardState extends State<Dashboard> {
             ),
             ListTile(
               leading: Icon(Icons.settings),
-              title: Text('Settings'),
+              title: Text('Profile'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, "profile");
               },
             ),
             ListTile(

@@ -1,5 +1,7 @@
 // import 'dart:io';
 
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:flutter_todolist/utils/routes.dart';
 import 'package:flutter_todolist/views/dashboard.dart';
@@ -40,7 +42,7 @@ class MyApp extends StatelessWidget {
       //initialRoute: ,
       getPages: Routes.routes,
       debugShowCheckedModeBanner: false,
-      home:ProfilePage()
+      home:Dashboard(),
     );
   }
 }
