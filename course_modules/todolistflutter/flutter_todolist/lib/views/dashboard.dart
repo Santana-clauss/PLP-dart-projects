@@ -55,10 +55,17 @@ class _DashboardState extends State<Dashboard> {
               },
             ),
             ListTile(
-              leading: Icon(Icons.settings),
+              leading: Icon(Icons.person_3_rounded),
               title: Text('Profile'),
               onTap: () {
                 Navigator.pushNamed(context, "profile");
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {
+                Navigator.pushNamed(context, "settings");
               },
             ),
             ListTile(

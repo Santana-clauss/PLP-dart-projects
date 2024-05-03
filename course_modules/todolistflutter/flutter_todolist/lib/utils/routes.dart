@@ -11,6 +11,7 @@ class Routes {
     GetPage(name: "/home", page: () => Dashboard()),
     GetPage(name: "/dashboard", page:()=> Dashboard()),
     GetPage(name: "/profile", page: () => ProfilePage()),
+     GetPage(name: "/settings", page: () => ProfilePage()),
     //GetPage(name: "/login", page: () => Navigation_Bar()),
     
   ];
