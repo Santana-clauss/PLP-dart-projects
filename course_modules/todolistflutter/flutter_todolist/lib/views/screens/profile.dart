@@ -7,7 +7,6 @@ import 'package:flutter_todolist/views/customProfile.dart';
 import 'package:flutter_todolist/views/customedetails.dart';
 import 'package:flutter_todolist/views/customtext.dart';
 
-
 //final store = GetStorage();
 
 class ProfilePage extends StatefulWidget {
