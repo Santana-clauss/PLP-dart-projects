@@ -127,11 +127,14 @@ class _ProfilePageState extends State<ProfilePage> {
                 ],
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 10),
-                child: custumdetails(
-                  imageUrl: "/images/to-do-list.png",
-                  tileTitle: "My Tasks",
-                  subTileTitle: "Manage your tasks",
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                child: Container(
+                  
+                  child: custumdetails(
+                    imageUrl: "/images/to-do-list.png",
+                    tileTitle: "My Tasks",
+                    subTileTitle: "Manage your tasks",
+                  ),
                 ),
               ),
               SizedBox(
