@@ -1,7 +1,7 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:flutter_todolist/config/constant.dart';
+import 'package:flutter_todolist/models/tasks.dart';
+import 'package:flutter_todolist/views/screens/taskdetails.dart'; // Import TaskDetailsPage
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -11,15 +11,13 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  final GlobalKey<ScaffoldState> _scaffoldKey =
-      GlobalKey<ScaffoldState>(); // Add this line
-
-  List<Map<String, dynamic>> tasks = [];
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  List<Task> tasks = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey, // Add this line
+      key: _scaffoldKey,
       appBar: AppBar(
         title: const Text("TaskTrov"),
         backgroundColor: orangeColor,
@@ -27,7 +25,7 @@ class _DashboardState extends State<Dashboard> {
         leading: IconButton(
           icon: Icon(Icons.menu),
           onPressed: () {
-            _scaffoldKey.currentState!.openDrawer(); // Modify this line
+            _scaffoldKey.currentState!.openDrawer();
           },
         ),
       ),
@@ -47,34 +45,7 @@ class _DashboardState extends State<Dashboard> {
                 ),
               ),
             ),
-            ListTile(
-              leading: Icon(Icons.dashboard),
-              title: Text('Dashboard'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.person_3_rounded),
-              title: Text('Profile'),
-              onTap: () {
-                Navigator.pushNamed(context, "profile");
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.settings),
-              title: Text('Settings'),
-              onTap: () {
-                Navigator.pushNamed(context, "settings");
-              },
-            ),
-            ListTile(
-              leading: Icon(Icons.task),
-              title: Text('All Tasks'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
+            // Add your Drawer items here
           ],
         ),
       ),
@@ -98,21 +69,22 @@ class _DashboardState extends State<Dashboard> {
               child: ListView.builder(
                 itemCount: tasks.length,
                 itemBuilder: (context, index) {
+                  final task = tasks[index];
                   return Card(
                     margin: const EdgeInsets.symmetric(vertical: 10),
                     child: ListTile(
                       leading: Checkbox(
-                        value: tasks[index]['completed'] ?? false,
+                        value: task.completed,
                         onChanged: (bool? value) {
                           setState(() {
-                            tasks[index]['completed'] = value;
+                            task.completed = value ?? false;
                           });
                         },
                       ),
                       title: Text(
-                        tasks[index]['title'] ?? '',
+                        task.title,
                         style: TextStyle(
-                          decoration: tasks[index]['completed'] ?? false
+                          decoration: task.completed
                               ? TextDecoration.lineThrough
                               : null,
                         ),
@@ -120,13 +92,13 @@ class _DashboardState extends State<Dashboard> {
                       subtitle: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          if (tasks[index]['description'] != null &&
-                              tasks[index]['description']!.isNotEmpty)
-                            Text(tasks[index]['description']!),
-                          if (tasks[index]['due_date'] != null &&
-                              tasks[index]['due_date']!.isNotEmpty &&
-                              tasks[index]['due_date'] != '0000-00-00')
-                            Text("Due: ${tasks[index]['due_date']}"),
+                          if (task.description != null &&
+                              task.description!.isNotEmpty)
+                            Text(task.description!),
+                          if (task.dueDate != null &&
+                              task.dueDate!.isNotEmpty &&
+                              task.dueDate != '0000-00-00')
+                            Text("Due: ${task.dueDate}"),
                         ],
                       ),
                       trailing: IconButton(
@@ -137,6 +109,14 @@ class _DashboardState extends State<Dashboard> {
                           });
                         },
                       ),
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => TaskDetailsPage(task: task),
+                          ),
+                        );
+                      },
                     ),
                   );
                 },
@@ -206,12 +186,12 @@ class _DashboardState extends State<Dashboard> {
               child: Text('Add'),
               onPressed: () {
                 setState(() {
-                  tasks.add({
-                    "title": taskNameController.text,
-                    "description": taskDescriptionController.text,
-                    "due_date": selectedDate?.toString() ?? "",
-                    "completed": false
-                  });
+                  tasks.add(Task(
+                    title: taskNameController.text,
+                    description: taskDescriptionController.text,
+                    dueDate: selectedDate?.toString() ?? "",
+                    completed: false,
+                  ));
                 });
                 Navigator.of(context).pop();
               },
