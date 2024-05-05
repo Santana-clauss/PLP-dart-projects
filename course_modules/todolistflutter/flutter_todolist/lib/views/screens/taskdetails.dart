@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_todolist/models/task.dart';
-
+import 'package:flutter_todolist/models/tasks.dart';
 class TaskDetailsPage extends StatelessWidget {
   final Task task;
 
