@@ -1,10 +1,10 @@
-class Task {
+class User {
   final String id;
   final String? username;
   final String password;
   
 
-  Task({
+  User({
     required this.id,
     this.username,
     required this.password,
@@ -24,10 +24,10 @@ class Task {
   // Method to convert Task object to a map
   Map<String, dynamic> toMap() {
     return {
-      'id': title,
-      'description': description,
-      'due_date': dueDate,
-      'completed': completed,
+      'id': id,
+      'username': username,
+      'password': password,
+      //'completed': completed,
     };
   }
 }
