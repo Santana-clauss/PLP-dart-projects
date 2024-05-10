@@ -1,8 +1,7 @@
 // ignore_for_file: sort_child_properties_last
-
-import 'package:fitness_app/config/constants.dart';
-import 'package:fitness_app/views/customtext.dart';
 import 'package:flutter/material.dart';
+import 'package:shopeasy/config/constants.dart';
+import 'package:shopeasy/views/customtext.dart';
 
 
 class customButton extends StatelessWidget {
