@@ -73,7 +73,14 @@ class DashboardPage extends StatelessWidget {
             right: 0,
             bottom: 0,
             child: Container(
-              color: Colors.white,
+              //: Colors.white,
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(20),
+                  topRight: Radius.circular(20),
+                ),
+              ),
               padding: EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
