@@ -8,6 +8,7 @@ void main(){
       theme: ThemeData(
         primarySwatch: Colors.red
       ),
+      debugShowCheckedModeBanner:false,
       home: DashboardPage(),
     ),
   );
