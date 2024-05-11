@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopeasy/views/screens/dashboard.dart';
 
 void main(){
   runApp(

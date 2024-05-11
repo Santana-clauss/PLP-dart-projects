@@ -1,13 +1,14 @@
 // ignore_for_file: unused_local_variable, must_be_immutable, avoid_print, prefer_const_constructors
 
 import 'dart:convert';
-import 'package:fitness_app/config/constants.dart';
-import 'package:fitness_app/views/custombutton.dart';
-import 'package:fitness_app/views/customtext.dart';
-import 'package:fitness_app/views/customtextfield.dart';
-import 'package:flutter/material.dart';
 
-import 'package:http/http.dart' as http;
+import 'package:flutter/material.dart';
+import 'package:shopeasy/config/constants.dart';
+import 'package:shopeasy/views/custombutton.dart';
+import 'package:shopeasy/views/customtext.dart';
+import 'package:shopeasy/views/customtextfield.dart';
+
+//import 'package:http/http.dart' as http;
 
 final TextEditingController phoneController = TextEditingController();
 final TextEditingController passwordController = TextEditingController();
