@@ -7,3 +7,4 @@ const greytextColor = Color(0xFF404040);
 const appbartextColor = Color(0xFFFFFFFF);
 const Color orangeColor = Color(0xFFeab676);
 const Color darkOrangeColor = Color(0xFFA0522D);
+const Color redColor = Color.fromARGB(255, 189, 50, 50);
