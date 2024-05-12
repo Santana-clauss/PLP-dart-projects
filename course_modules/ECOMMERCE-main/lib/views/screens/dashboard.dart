@@ -113,13 +113,17 @@ class DashboardPage extends StatelessWidget {
                       CategoryButton('Shoes'),
                     ],
                   ),
-                  Text(
-                    'New Arrivals',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                  SizedBox(height: 10,),
+                  Container(
+                    height: 150,
+                    width: 600,
+                    decoration: BoxDecoration(
+                      color: redColor,
+                      borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
+                    child: customText(label: "New Arrivals",labelColor:blackColor,fontSize: 28,),
+                    
+                    
                   ),
                   SizedBox(height: 5),
                   Text(
