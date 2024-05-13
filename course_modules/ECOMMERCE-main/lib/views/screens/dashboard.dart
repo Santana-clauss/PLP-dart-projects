@@ -3,20 +3,19 @@
 import 'package:flutter/material.dart';
 import 'package:shopeasy/config/constants.dart';
 import 'package:shopeasy/views/categorybutton.dart';
+import 'package:shopeasy/views/customedetails.dart';
 import 'package:shopeasy/views/customtext.dart';
 
 class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          // First Container
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            child: Container(
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            // First Container
+            Container(
               height: 200,
               color: Colors.red[800],
               padding: EdgeInsets.all(8),
@@ -65,15 +64,8 @@ class DashboardPage extends StatelessWidget {
                 ],
               ),
             ),
-          ),
-          // Second Container
-          Positioned(
-            top: 200,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: Container(
-              //: Colors.white,
+            // Second Container
+            Container(
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(
@@ -88,10 +80,12 @@ class DashboardPage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      customText(label: "Categories",labelColor: blackColor,),
-                      customText(label:"View All",labelColor: greyColor),
+                      customText(
+                        label: "Categories",
+                        labelColor: blackColor,
+                      ),
+                      customText(label: "View All", labelColor: greyColor),
                     ],
-                    
                   ),
                   SizedBox(height: 20),
                   Row(
@@ -113,10 +107,12 @@ class DashboardPage extends StatelessWidget {
                       CategoryButton('Shoes'),
                     ],
                   ),
-                  SizedBox(height: 10,),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Container(
                     height: 150,
-                    width: 600,
+                    //width: 600,
                     decoration: BoxDecoration(
                       color: redColor,
                       borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -126,40 +122,56 @@ class DashboardPage extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          customText(label: "New Arrivals",labelColor:blackColor,fontSize: 28,),
+                          customText(
+                            label: "New Arrivals",
+                            labelColor: blackColor,
+                            fontSize: 24,
+                          ),
                           customText(label: "Discover the latest trends now"),
-                          SizedBox(height: 20,),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Row(
                             children: [
                               customText(label: "Explore"),
                               Icon(Icons.arrow_forward_rounded),
                             ],
                           ),
-                          ]
-                          
+                        ],
                       ),
-                      
                     ),
-                    
-                    
                   ),
                   SizedBox(height: 15),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      
                       customText(label: "Trending items"),
-                      customText(label: "View All",labelColor:greyColor),
+                      customText(label: "View All", labelColor: greyColor),
+                    ],
+                  ),
+                  // Row of customdetails widgets
+                  Row(
+                    children: [
+                      SizedBox(width: 10), // Add space between the containers
+                      customdetails(
+                        imageUrl: "/images/tshirt.jpg",
+                        tileTitle: "TSHIRT",
+                        
+                      ),
+                      SizedBox(width: 10), // Add space between the containers
+                      customdetails(
+                        imageUrl: "/images/tshirt.jpg",
+                        tileTitle: "TSHIRT",
+                        
+                      ),
                     ],
                   ),
                   SizedBox(height: 10),
-          
-                  
                 ],
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

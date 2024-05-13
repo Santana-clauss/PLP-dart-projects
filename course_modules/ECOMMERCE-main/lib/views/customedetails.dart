@@ -1,56 +1,61 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
+import 'package:shopeasy/config/constants.dart';
 
-class custumdetails extends StatelessWidget {
-  final imageUrl;
+class customdetails extends StatelessWidget {
+  final String imageUrl;
   final String tileTitle;
-  final String subTileTitle;
-  const custumdetails({
+  
+
+  const customdetails({
     required this.imageUrl,
     required this.tileTitle,
-    required this.subTileTitle,
-    super.key,
-  });
+    
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        //icon
-        Row(
-          children: [
-            Container(
-              height: 60,
-              child: Image.asset(imageUrl),
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Text(
-                  tileTitle,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  subTileTitle,
-                  style: TextStyle(
-                    color: Colors.grey.shade600,
-                  ),
-                )
-              ],
-            ),
-          ],
-        ),
-        Icon(Icons.arrow_forward_ios),
-      ],
+    return Container(
+      
+      decoration: BoxDecoration(
+        color: redColor, // Background color of the container
+        borderRadius: BorderRadius.circular(10),
+      ),
+      padding: EdgeInsets.all(10), // Padding for the content
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          // Icon and Image
+          Column(
+            children: [
+              Container(
+                height: 60,
+                width: 60,
+                child: Image.asset(imageUrl),
+              ),
+              SizedBox(width: 10),
+              // Text
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(
+                    children: [
+                      Text(
+                        tileTitle,
+                        style: TextStyle(fontWeight: FontWeight.bold,),
+                      ),
+                      SizedBox(height: 10),
+                      Icon(Icons.shopping_basket_rounded),
+                    ],
+                  )
+                ],
+              ),
+            ],
+          ),
+          
+        ],
+      ),
     );
   }
 }
