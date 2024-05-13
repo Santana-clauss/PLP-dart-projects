@@ -89,7 +89,7 @@ class DashboardPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       customText(label: "Categories",labelColor: blackColor,),
-                      customText(label:"View All",labelColor: blackColor),
+                      customText(label:"View All",labelColor: greyColor),
                     ],
                     
                   ),
@@ -121,27 +121,35 @@ class DashboardPage extends StatelessWidget {
                       color: redColor,
                       borderRadius: BorderRadius.all(Radius.circular(10)),
                     ),
-                    child: customText(label: "New Arrivals",labelColor:blackColor,fontSize: 28,),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          customText(label: "New Arrivals",labelColor:blackColor,fontSize: 28,),
+                          customText(label: "Discover the latest trends now"),
+                          SizedBox(height: 20,),
+                          Row(
+                            children: [
+                              customText(label: "Explore"),
+                              Icon(Icons.arrow_forward_rounded),
+                            ],
+                          ),
+                          ]
+                          
+                      ),
+                      
+                    ),
                     
                     
                   ),
-                  SizedBox(height: 5),
-                  Text(
-                    'Discover the latest trends now',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  SizedBox(height: 10),
+                  SizedBox(height: 15),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Explore ',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      Icon(
-                        Icons.arrow_forward,
-                        color: Colors.white,
-                      ),
+                      
+                      customText(label: "Trending items"),
+                      customText(label: "View All",labelColor:greyColor),
                     ],
                   ),
                   SizedBox(height: 10),

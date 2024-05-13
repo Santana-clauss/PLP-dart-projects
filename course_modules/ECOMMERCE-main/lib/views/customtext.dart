@@ -11,7 +11,7 @@ class customText extends StatelessWidget {
   const customText(
       {super.key,
       required this.label,
-      this.labelColor = greytextColor,
+      this.labelColor = blackColor,
       this.fontSize = 17});
 
   @override
