@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 import 'package:shopeasy/config/constants.dart';
@@ -28,19 +28,19 @@ class DashboardPage extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       IconButton(
-                        icon: Icon(Icons.menu, color: Colors.white),
+                        icon: Icon(Icons.menu, color: blackColor),
                         onPressed: () {},
                       ),
                       Row(
                         children: [
                           IconButton(
                             icon:
-                                Icon(Icons.search_rounded, color: Colors.black),
+                                Icon(Icons.search_rounded, color: blackColor),
                             onPressed: () {},
                           ),
                           IconButton(
                             icon: Icon(Icons.shopping_basket_rounded,
-                                color: Colors.black),
+                                color: blackColor),
                             onPressed: () {},
                           ),
                         ],
@@ -54,10 +54,11 @@ class DashboardPage extends StatelessWidget {
                         filled: true,
                         fillColor: Colors.white,
                         hintText: 'search clothing items',
-                        prefixIcon: Icon(Icons.search),
-                        suffixIcon: Icon(Icons.camera_alt),
+                        prefixIcon: Icon(Icons.search, color: Colors.grey),
+                        suffixIcon: Icon(Icons.camera_alt, color: Colors.grey),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(15),
+                          borderSide: BorderSide.none,
                         ),
                       ),
                     ),
@@ -67,13 +68,7 @@ class DashboardPage extends StatelessWidget {
             ),
             // Second Container
             Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-              ),
+              color: Colors.grey[200],
               padding: EdgeInsets.all(10),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -97,9 +92,7 @@ class DashboardPage extends StatelessWidget {
                       CategoryButton('Bottoms'),
                     ],
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 10),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -108,12 +101,9 @@ class DashboardPage extends StatelessWidget {
                       CategoryButton('Shoes'),
                     ],
                   ),
-                  SizedBox(
-                    height: 10,
-                  ),
+                  SizedBox(height: 15),
                   Container(
                     height: 150,
-                    //width: 600,
                     decoration: BoxDecoration(
                       color: redColor,
                       borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -128,21 +118,27 @@ class DashboardPage extends StatelessWidget {
                             labelColor: blackColor,
                             fontSize: 24,
                           ),
-                          customText(label: "Discover the latest trends now"),
-                          SizedBox(
-                            height: 20,
+                          //SizedBox(height: 10),
+                          customText(
+                            label: "Discover the latest trends now",
+                            labelColor: blackColor,
                           ),
+                          SizedBox(height: 20),
                           Row(
                             children: [
-                              customText(label: "Explore"),
-                              Icon(Icons.arrow_forward_rounded),
+                              customText(
+                                label: "Explore",
+                                labelColor: whiteColor,
+                              ),
+                              Icon(Icons.arrow_forward_rounded,
+                                  color: whiteColor),
                             ],
                           ),
                         ],
                       ),
                     ),
                   ),
-                  SizedBox(height: 15),
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -150,62 +146,59 @@ class DashboardPage extends StatelessWidget {
                       customText(label: "View All", labelColor: greyColor),
                     ],
                   ),
+                  SizedBox(height: 20,),
                   // Row of customdetails widgets
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      //SizedBox(width: 20), // Add space between the containers
                       Expanded(
                         child: CustomDetails(
                           imageUrl: "/images/tshirt.jpg",
                           tileTitle: "TSHIRT",
-                          
                         ),
                       ),
-                      SizedBox(width: 200), // Add space between the containers
+                      SizedBox(width: 10),
                       Expanded(
                         child: CustomDetails(
                           imageUrl: "/images/tshirt.jpg",
                           tileTitle: "TSHIRT",
-                          
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 20,),
-                  // Row(
-                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  //   children: [
-                  //     customButton(buttonLabel: "Add to Cart"),
-                  //     customButton(buttonLabel: "Try on"),
-                  //   ],
-                  // )
+                  SizedBox(height: 20),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      ElevatedButton(onPressed: (){}, child: 
-                      customText(label: "Add to Cart"),
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white, 
-                        backgroundColor: redColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),)
-                       
-                                      )
-                                    ),
-                      ElevatedButton(onPressed: (){}, child: 
-                      customText(label: "Try On"),
-                      style: ElevatedButton.styleFrom(
-                        foregroundColor: Colors.white,
-                         backgroundColor: redColor,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10),)
-                       
-                                      )
-                                    ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: customText(label: "Add to Cart"),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: redColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: customText(label: "Try On"),
+                        ),
+                        style: ElevatedButton.styleFrom(
+                          primary: redColor,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
                     ],
-                  )
-              ],
+                  ),
+                ],
               ),
             ),
           ],

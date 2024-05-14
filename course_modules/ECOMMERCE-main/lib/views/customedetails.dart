@@ -16,44 +16,38 @@ class CustomDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      
       decoration: BoxDecoration(
         color: redColor, // Background color of the container
         borderRadius: BorderRadius.circular(10),
       ),
       padding: EdgeInsets.all(10), // Padding for the content
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          // Icon and Image
-          Column(
+          Container(
+            height: 90,
+            width: 90,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(imageUrl),
+                fit: BoxFit.cover,
+              ),
+              
+            ),
+           // child: Image.asset(imageUrl),
+          ),
+          //SizedBox(width: 10),
+          // Text
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                height: 60,
-                width: 60,
-                child: Image.asset(imageUrl),
+              Text(
+                tileTitle,
+                style: TextStyle(fontWeight: FontWeight.bold,),
               ),
-              SizedBox(width: 10),
-              // Text
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        tileTitle,
-                        style: TextStyle(fontWeight: FontWeight.bold,),
-                      ),
-                      SizedBox(height: 10),
-                      Icon(Icons.shopping_basket_rounded),
-                    ],
-                  )
-                ],
-              ),
+              SizedBox(height: 5),
+              Icon(Icons.shopping_basket_rounded),
             ],
           ),
-          
         ],
       ),
     );
