@@ -26,8 +26,10 @@ class customTextField extends StatelessWidget {
       controller: userFieldController,
       decoration: InputDecoration(
           hintText: hint,
+          fillColor: Colors.white,
+          filled: true,
           border: OutlineInputBorder(
-              borderRadius: const BorderRadius.all(Radius.circular(10))),
+          borderRadius: const BorderRadius.all(Radius.circular(10))),
           prefixIcon: Icon(icon),
           // ignore: sized_box_for_whitespace
           suffixIcon: isPassword

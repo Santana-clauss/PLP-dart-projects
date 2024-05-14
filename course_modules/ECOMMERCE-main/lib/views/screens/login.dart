@@ -1,128 +1,105 @@
-// ignore_for_file: unused_local_variable, must_be_immutable, avoid_print, prefer_const_constructors
-
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:shopeasy/config/constants.dart';
-import 'package:shopeasy/views/custombutton.dart';
 import 'package:shopeasy/views/customtext.dart';
 import 'package:shopeasy/views/customtextfield.dart';
 
-//import 'package:http/http.dart' as http;
-
-final TextEditingController phoneController = TextEditingController();
+final TextEditingController userNameController = TextEditingController();
 final TextEditingController passwordController = TextEditingController();
-//LoginController loginController = Get.put(LoginController());
-//preferences myPref = preferences();
-//Prefs myPref = Prefs();
-//var store = GetStorage();
 
-class LoginScreen extends StatelessWidget {
-  bool isLogged = false;
-  bool isRememberMe = false;
-  //final Prefs _prefs = Prefs();
-  LoginScreen({Key? key}) : super(key: key);
+class LoginScreen extends StatefulWidget {
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
 
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    //myPref.getString("phone").then((value) => {phoneController.text = value.toString()});
-
     return Scaffold(
       body: Stack(
         children: [
           Container(
-            height: double.infinity,
-            width: double.infinity,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("images/background.jpg"),
+                image: AssetImage('assets/images/background.jpg'),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          SafeArea(
-            child: Column(
-              children: [
-                SizedBox(height: 20),
-                CircleAvatar(
-                  radius: 50,
-                  backgroundColor: Colors.transparent,
-                  child: ClipOval(
-                    child: Image.asset(
-                      'images/logow.jpg',
-                      height: 100,
-                      width: 100,
-                      fit: BoxFit.cover,
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height,
+              color: Colors.white
+                  .withOpacity(0.45), // Adjust opacity value as needed
+              child: Padding(
+                padding: EdgeInsets.all(16.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    customText(label: "TWC",labelColor: whiteColor,fontSize: 32,),
+                    customText(label: "You choose what you\n see,fit the attire and\n buy",labelColor: whiteColor,),
+                    SizedBox(height: 80),
+                    customTextField(
+                      userFieldController: userNameController,
+                      hint: "Username",
+                      icon: Icons.person,
+                      hideText: true,
                     ),
-                  ),
-                ),
-                SizedBox(height: 20),
-                SizedBox(height: 20),
-                Expanded(
-                  child: SingleChildScrollView(
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(40),
-                          color: Colors.white.withOpacity(0.74),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    customTextField(
+                      userFieldController: passwordController,
+                      hint: "Password",
+                      icon: Icons.lock,
+                      hideText: true,
+                    ),
+                    SizedBox(height: 16.0),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: redColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
                         ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(20),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              customText(label: "phone"),
-                              customTextField(
-                                userFieldController: phoneController,
-                                icon: Icons.phone,
-                              ),
-                              customText(label: "Password"),
-                              customTextField(
-                                userFieldController: passwordController,
-                                hint: "Password",
-                                icon: Icons.lock,
-                                hideText: true,
-                              ),
-                              SizedBox(height: 20),
-                              customButton(
-                                buttonLabel: "Login",
-                                action: () {
-                                  //serverLogin();
-                                },
-                              ),
-                              SizedBox(height: 25),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  customText(label: "Don't have an account?"),
-                                  GestureDetector(
-                                    child: customText(
-                                      label: "Sign up here",
-                                      labelColor: orangeColor,
-                                      //onTap: gotoRegister,
-                                    ),
-                                  ),
-                                ],
-                              )
-                            ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 24, right: 24, bottom: 13, top: 13),
+                        child: GestureDetector(
+                          onTap: (){
+                            gotohome();
+                          },
+                          child: customText(
+                            label: "Login ",
+                            labelColor: whiteColor,
+                            fontSize: 24,
                           ),
                         ),
                       ),
                     ),
-                  ),
+                    SizedBox(height: 16.0),
+                    TextButton(
+                      onPressed: () {
+                        // Navigate to create account screen
+                      },
+                      child: customText(
+                        label: "Don't have an account Create One",
+                        labelColor: blackColor,
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ],
       ),
     );
   }
-
-  void gotoRegister() {
-    //Get.offAllNamed("/");
+  void gotohome(){
+   Navigator.pushNamed(context, "/home");
   }
-
-//   
 }
+
+
