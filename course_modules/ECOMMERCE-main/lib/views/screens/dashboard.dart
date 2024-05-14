@@ -152,21 +152,32 @@ class DashboardPage extends StatelessWidget {
                   // Row of customdetails widgets
                   Row(
                     children: [
-                      SizedBox(width: 10), // Add space between the containers
-                      customdetails(
-                        imageUrl: "/images/tshirt.jpg",
-                        tileTitle: "TSHIRT",
-                        
+                      //SizedBox(width: 20), // Add space between the containers
+                      Expanded(
+                        child: CustomDetails(
+                          imageUrl: "/images/tshirt.jpg",
+                          tileTitle: "TSHIRT",
+                          
+                        ),
                       ),
-                      SizedBox(width: 10), // Add space between the containers
-                      customdetails(
-                        imageUrl: "/images/tshirt.jpg",
-                        tileTitle: "TSHIRT",
-                        
+                      SizedBox(width: 200), // Add space between the containers
+                      Expanded(
+                        child: CustomDetails(
+                          imageUrl: "/images/tshirt.jpg",
+                          tileTitle: "TSHIRT",
+                          
+                        ),
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      customText(label: "Add to Cart"),
+                      customText(label: "Try On"),
+                    ],
+                  ),
+                  
                 ],
               ),
             ),

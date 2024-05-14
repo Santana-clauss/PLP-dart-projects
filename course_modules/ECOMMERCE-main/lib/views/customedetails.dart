@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shopeasy/config/constants.dart';
 
-class customdetails extends StatelessWidget {
+class CustomDetails extends StatelessWidget {
   final String imageUrl;
   final String tileTitle;
   
 
-  const customdetails({
+  const CustomDetails({
     required this.imageUrl,
     required this.tileTitle,
     
