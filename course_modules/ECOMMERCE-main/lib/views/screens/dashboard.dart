@@ -1,8 +1,9 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors, sort_child_properties_last
 
 import 'package:flutter/material.dart';
 import 'package:shopeasy/config/constants.dart';
 import 'package:shopeasy/views/categorybutton.dart';
+import 'package:shopeasy/views/custombutton.dart';
 import 'package:shopeasy/views/customedetails.dart';
 import 'package:shopeasy/views/customtext.dart';
 
@@ -151,6 +152,7 @@ class DashboardPage extends StatelessWidget {
                   ),
                   // Row of customdetails widgets
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       //SizedBox(width: 20), // Add space between the containers
                       Expanded(
@@ -170,15 +172,40 @@ class DashboardPage extends StatelessWidget {
                       ),
                     ],
                   ),
+                  SizedBox(height: 20,),
+                  // Row(
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //     customButton(buttonLabel: "Add to Cart"),
+                  //     customButton(buttonLabel: "Try on"),
+                  //   ],
+                  // )
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
+                      ElevatedButton(onPressed: (){}, child: 
                       customText(label: "Add to Cart"),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white, 
+                        backgroundColor: redColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),)
+                       
+                                      )
+                                    ),
+                      ElevatedButton(onPressed: (){}, child: 
                       customText(label: "Try On"),
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: Colors.white,
+                         backgroundColor: redColor,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),)
+                       
+                                      )
+                                    ),
                     ],
-                  ),
-                  
-                ],
+                  )
+              ],
               ),
             ),
           ],

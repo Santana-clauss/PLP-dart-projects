@@ -26,10 +26,10 @@ class customButton extends StatelessWidget {
         labelColor: Colors.white
       ),
       style: ElevatedButton.styleFrom(
-        backgroundColor: orangeColor,
+        backgroundColor: redColor,
         elevation: 10,
         padding: const EdgeInsets.all(20),
-        shadowColor: primaryColor
+        //shadowColor: primaryColor
       ),
     );
   }
