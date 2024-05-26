@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:shopeasy/config/constants.dart';
 import 'package:shopeasy/views/customtext.dart';
@@ -99,6 +101,7 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   void gotohome(){
    Navigator.pushNamed(context, "/home");
+   
   }
 }
 
