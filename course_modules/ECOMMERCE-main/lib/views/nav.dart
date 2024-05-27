@@ -4,14 +4,9 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:shopeasy/config/const.dart';
-import 'package:shopeasy/config/constants.dart';
-import 'package:shopeasy/controllers/controllers.dart';
-import 'package:shopeasy/screens/home.dart';
-import 'package:shopeasy/screens/profile.dart';
-import 'package:shopeasy/screens/settings.dart';
 
-HomeController homeController = Get.put(HomeController());
+
+//HomeController homeController = Get.put(HomeController());
 
 class HomePage extends StatelessWidget {
   final List<Widget> screens = [
