@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:shopeasy/screens/dashboard.dart';
+import 'package:shopeasy/screens/navbar.dart';
 import 'package:shopeasy/screens/home.dart';
 import 'package:shopeasy/screens/testing.dart';
 
